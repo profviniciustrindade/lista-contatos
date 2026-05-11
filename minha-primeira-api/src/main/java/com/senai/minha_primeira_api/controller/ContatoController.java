@@ -3,6 +3,7 @@ package com.senai.minha_primeira_api.controller;
 import com.senai.minha_primeira_api.model.Contato;
 import com.senai.minha_primeira_api.service.ContatoService;
 import org.springframework.web.bind.annotation.*;
+package com.senai.minha_primeira_api.dto;
 
 import java.sql.SQLException;
 import java.util.List;
