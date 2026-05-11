@@ -4,6 +4,7 @@ import com.senai.minha_primeira_api.model.Contato;
 import com.senai.minha_primeira_api.repository.ContatoRepository;
 import org.springframework.stereotype.Service;
 import com.senai.minha_primeira_api.mapper;
+import com.senai.minha_primeira_api.dto;
 
 import java.sql.SQLException;
 import java.util.List;
