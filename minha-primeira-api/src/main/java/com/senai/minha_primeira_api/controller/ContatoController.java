@@ -17,10 +17,11 @@ public class ContatoController {
     }
 
     @PostMapping
-    public Contato postContato(@RequestBody Contato contato){
+    public ContatoRespostaDto postContato(
+            @RequestBody ContatoRequisicaoDto requisicaoDto){
         try{
-            contatoService.criarContato(contato);
-            return contato;
+            ContatoRespostaDto repostaDto = contatoService.criarContato(requisicaoDto);
+            return repostaDto;
         }catch (SQLException | RuntimeException e){
             throw new RuntimeException(e.getMessage());
         }
