@@ -10,17 +10,25 @@ import java.util.List;
 @Service
 public class ContatoService {
     private final ContatoRepository contatoRepository;
+    private final ContatoMapper contatoMapper;
 
-    public ContatoService(ContatoRepository contatoRepository){
+    public ContatoService(
+            ContatoRepository contatoRepository,
+            ContatoMapper contatoMapper){
         this.contatoRepository=contatoRepository;
+        this.contatoMapper=contatoMapper;
     }
 
-    public Contato criarContato(Contato contato) throws SQLException {
+    public ContatoRespostaDto criarContato(
+            ContatoRequisicaoDto contatoRequisicaoDto) throws SQLException {
+        Contato contato
+                = contatoMapper.paraEntidade(contatoRequisicaoDto);
+
         contatoRepository.saveContato(contato);
 
-        return contato;
+        return contatoMapper.paraRespostaDto(contato);
     }
-
+    
     public List<Contato> obterContatos() throws SQLException{
         List<Contato> contatos = contatoRepository.findAllContatos();
 
